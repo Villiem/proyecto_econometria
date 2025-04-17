@@ -52,10 +52,10 @@ enigh <- enigh |>
   mutate(edo = substr(ubica_geo,1,2)) # Nomas crea el Estado
 ```
 
-Vamos a hacer esta gráfica.
+
 ![](ej1.png)
 
-Recreando la gráfica.
+
 
 ### Paso 1. Hacerlo muestreo complejo
 
@@ -72,13 +72,13 @@ strata <- enigh|>
 ```{r}
 df <- strata |> 
   srvyr::group_by(edo) |> 
-  srvyr::summarise(promedio_ingreso = survey_mean(ing_cor))
+  srvyr::summarise(promedio_ingreso = survey_mean(gasto_mon))
 kableExtra::kable(head(df))
 ```
 
 
 ### Paso 3. Le preguntas a chat como hacer la gráfica bonita
-```{r, out.width="70%", fig.cap="Ejemplo 1" }
+```{r, out.width="50%", fig.cap="Ejemplo 1", out.height="70%" }
 # Crear el mapeo de códigos a nombres completos de estados
 codigo_a_nombre <- c(
   "01" = "Aguascalientes", "02" = "Baja California", "03" = "Baja California Sur",
@@ -130,9 +130,3 @@ ggplot(df_ordenado, aes(x = reorder(nombre_estado, promedio_ingreso), y = promed
 ```
 
 Y ya le vas moviendo a lo que necesites.
-
-### Ejemplo 2
-
-![](ej2.png)
-
-###
