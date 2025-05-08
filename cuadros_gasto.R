@@ -290,3 +290,4 @@ print(etiquetas_gasto)
 colnames(tabla_deciles)[-1] <- unname(etiquetas_gasto)
 print("Paso 8 completado: Tabla final con etiquetas")
 print(tabla_deciles)
+
